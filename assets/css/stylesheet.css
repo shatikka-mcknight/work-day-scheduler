@@ -1,0 +1,37 @@
+body {
+  font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin: 0 auto;
+    padding: 0 auto;
+  }
+  
+  .hourText {
+    text-align: right;
+  }
+ 
+  .col-10 {
+    max-width: 100% !important;
+  }
+
+  
+
+.vline {
+  border-right: 3px solid #8b8a8a;
+  padding-left: 10px;;
+  }
+
+.vlinePast {
+  border-right: 3px solid #eb0808;
+  }
+
+.vlinePresent {
+  border-right: 3px solid #1eff00;
+  }
+
+.vlineFuture {
+  border-right: 3px solid #00e1ff;
+  }   
+
+  .space {
+    padding-bottom: 10px;
+  }
