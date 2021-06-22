@@ -1,62 +1,103 @@
 // set the date at the top of the page
-var today = moment().format('LLLL');
-document.getElementById("todayDate").innerHTML = today.toString();
+var today = moment().format("dddd, MMMM DD YYYY, k:mm:ss a");
+document.getElementById("todayDate").innerHTML = today.toString()
 
-// Enter tasks information object to store in localStorage.
+let taskHour = document.querySelectorAll(".taskHour");
+let textEl = $("#enterTask10");
 
+console.log(textEl);
+//This uses moment() to setup the current day, month, and year
+let currentDay = moment().format("dddd MMMM Do, YYYY");
+$("#currentDay").text(currentDay);
 
-
-/* add tasks to localStorage */
-document.getElementById("saveData").onclick
-    = function () {
-        var taskInput = document.getElementById("enterTask9").value;
-        var taskHour = document.getElementById("hour9").innerHTML;
-        
-        //}
-       localStorage.setItem(taskHour, taskInput);
+//Setup an array for the hours of a work day
+hoursIndex = 0;
+let hoursArray = [
+    {
+        9: "9:00 am",
+        10: "10:00 am",
+        11: "11:00 am",
+        12: "12:00 pm", 
+        13: "13:00 pm",
+        14: "14:00 pm",
+        15: "15:00 pm",
+        16: "16:00 pm", 
+        17: "17:00 pm",
     }
+]
 
-   
-    
-    /* load the tasks from localStorage and create tasks in the right row */
-    $("#taskHour9 .task").val(localStorage.getItem("taskHour9"));
+//This will cycle through the hours array
+function updateHours() {
+    taskHour.innerHTML = hoursArray[hoursIndex][9]
+    taskHour.innerHTML = hoursArray[hoursIndex][10]
+    taskHour.innerHTML = hoursArray[hoursIndex][11]
+    taskHour.innerHTML = hoursArray[hoursIndex][12]
+    taskHour.innerHTML = hoursArray[hoursIndex][13]
+    taskHour.innerHTML = hoursArray[hoursIndex][14]
+    taskHour.innerHTML = hoursArray[hoursIndex][15]
+    taskHour.innerHTML = hoursArray[hoursIndex][16]
+    taskHour.innerHTML = hoursArray[hoursIndex][17]
+  }
+  
+  updateHours();
 
-        // for each key/value pair in tasks, create a task
-       
+//Save button
+let saveButton = document.querySelectorAll(".saveBtn"); 
 
-    // make sure the past/current/future time is reflected
-
-
-
-    /* create a task in the row that corresponds to the specified hour */
-
-
-
-    /* update the background of each row based on the time of day */
-
-   
-        // handle past, present, and future
+//Setup the click event to save the text to localStorage
+  $(document).ready(function () {
+      $(".saveBtn").click(function () {
+        var parentEl = $(this).parent()
+        var hour = parentEl.attr("id");
+          var taskInput = parentEl.find(".taskInput");
+          var schedularTask = taskInput.val();
+        console.log(hour); 
+        console.log(schedularTask);
         
-    /* replaces the provided textarea element with a p element and persists the data in localStorage */
+        localStorage.setItem(hour, schedularTask);
+      });
 
-    // get the necessary elements
+      $("#hour9 .taskInput").val(localStorage.getItem("hour9"));
+      $("#hour10 .taskInput").val(localStorage.getItem("hour10"));
+      $("#hour11 .taskInput").val(localStorage.getItem("hour11"));
+      $("#hour12 .taskInput").val(localStorage.getItem("hour12"));
+      $("#hour13 .taskInput").val(localStorage.getItem("hour13"));
+      $("#hour14 .taskInput").val(localStorage.getItem("hour14"));
+      $("#hour15 .taskInput").val(localStorage.getItem("hour15"));
+      $("#hour16 .taskInput").val(localStorage.getItem("hour16"));
+      $("#hour17 .taskInput").val(localStorage.getItem("hour17"));
+      
 
-    // get the time and task
-
-    // persist the data
-    // replace the textarea element with a p element
-
-/* CLICK HANDLERS */
-
-// tasks
-
-// convert to a textarea element if the time hasn't passed
-   
-
-// save button click handler
-
-// update task backgrounds on the hour
-    
-// check how much time is left until the next hour
-
-// get the tasks from localStorage on load.
+      //This function is responsible for adding the colors to the event section for past, present, and future events.
+      var currentHour = moment().format();
+      $( ".row" ).each(function() {
+        var hourTime = parseInt($(this).attr("id"));
+          var taskTime = $(this).children().find(".taskInput");
+          console.log(hourTime);
+          if (hourTime < currentHour) {
+              //past
+              taskTime.addClass("vlinePast");
+              taskTime.removeClass("vline");
+          }
+        //   else if (hourTime !== taskTime)
+        //   {
+        //     taskTime.addClass("vline");
+        //   }
+          else if (hourTime === currentHour)
+          {
+            //present
+            taskTime.removeClass("vlinePast");
+            taskTime.addClass("vlinePresent");
+            taskTime.removeClass("vline");
+              
+          }
+          else
+          {
+            //future
+            taskTime.addClass("vlineFuture");
+            taskTime.removeClass("vlinePast");
+            taskTime.removeClass("vlinePresent");
+            taskTime.removeClass("vline");
+        }
+      })
+  });
