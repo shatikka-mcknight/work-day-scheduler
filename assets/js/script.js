@@ -3,12 +3,9 @@ var today = moment().format("dddd, MMMM DD YYYY, k:mm:ss a");
 document.getElementById("todayDate").innerHTML = today.toString()
 
 let taskHour = document.querySelectorAll(".taskHour");
-let textEl = $("#enterTask10");
+// let textEl = $("#enterTask10");
 
-console.log(textEl);
 //This uses moment() to setup the current day, month, and year
-let currentDay = moment().format("dddd MMMM Do, YYYY");
-$("#currentDay").text(currentDay);
 
 //Setup an array for the hours of a work day
 hoursIndex = 0;
@@ -69,34 +66,39 @@ let saveButton = document.querySelectorAll(".saveBtn");
       
 
       //This function is responsible for adding the colors to the event section for past, present, and future events.
-      var currentHour = moment().format();
+      
+    var currentHour = today.toString();
+    console.log(currentHour);
       $( ".row" ).each(function() {
-        var hourTime = parseInt($(this).attr("id"));
+          var hourTime = moment().get('hour');
           var taskTime = $(this).children().find(".taskInput");
-          console.log(hourTime);
+        
+        //neutural time not data
+        taskTime.addClass("vline");
+        
           if (hourTime < currentHour) {
               //past
               taskTime.addClass("vlinePast");
               taskTime.removeClass("vline");
           }
-        //   else if (hourTime !== taskTime)
-        //   {
-        //     taskTime.addClass("vline");
-        //   }
+          // else if (hourTime !== taskTime)
+          // {
+          //   taskTime.addClass("vline");
+          // }
           else if (hourTime === currentHour)
           {
             //present
-            taskTime.removeClass("vlinePast");
+            // taskTime.removeClass("vlinePast");
             taskTime.addClass("vlinePresent");
             taskTime.removeClass("vline");
               
           }
-          else
+          else if (hourTime > currentHour)
           {
             //future
             taskTime.addClass("vlineFuture");
-            taskTime.removeClass("vlinePast");
-            taskTime.removeClass("vlinePresent");
+            // taskTime.removeClass("vlinePast");
+            // taskTime.removeClass("vlinePresent");
             taskTime.removeClass("vline");
         }
       })

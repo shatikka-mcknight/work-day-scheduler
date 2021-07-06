@@ -95,21 +95,25 @@ body {
   }
 
 .vline {
-  border-right: 3px solid #8b8a8a;
+  border-bottom: 5px solid #8b8a8a;
   }
 
 .vlinePast {
-  border-right: 3px solid #eb0808;
+  border-bottom: 5px solid #eb0808;
   }
 
 .vlinePresent {
-  border-right: 3px solid #1eff00;
+  border-bottom: 5px solid #1eff00;
   }
 
 .vlineFuture {
-  border-right: 3px solid #00e1ff;
+  border-bottom: 5px solid #00e1ff;
   }   
 
   .space {
     padding-bottom: 10px;
+  }
+
+  .taskHour {
+    
   }
