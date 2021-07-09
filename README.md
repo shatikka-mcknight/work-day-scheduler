@@ -16,14 +16,14 @@ Directions: Create a simple calendar application that allows a user to save even
 
 
 ## User Story
----
+
 AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
----
+SO THAT I can manage my time effectively-
+
 
 ## Acceptance Criteria
----
+
 GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
 THEN the current day is displayed at the top of the calendar
@@ -37,7 +37,7 @@ WHEN I click the save button for that timeblock
 THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
----
+
 
 
 ## Technologies Used
@@ -56,14 +56,14 @@ Project is: _in progress_
 
 ## Room for Improvement
 Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
+- Color code needs work for Past, Current, and Future Task
+- Mobile Friendly
 
 Future Development:
-- Feature to be added 1
-- Feature to be added 2
+- Allow Monthly Schedule
+- Notification Setup
 
 
 ## Links
-[GitHub](https://github.com/shatikka-mcknight/work-day-scheduler)
-[Work Day Scheduler](https://shatikka-mcknight.github.io/work-day-scheduler/)
+- [GitHub File](https://github.com/shatikka-mcknight/-work-day-scheduler)
+- [Work Day Scheduler](https://shatikka-mcknight.github.io/work-day-scheduler/)
