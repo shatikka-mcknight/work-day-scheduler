@@ -2,7 +2,7 @@
 
 # Work Day Scheduler
 Directions: Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
-<!--> Live demo [_here_](https://www.example.com).  If you have the project hosted somewhere, include the link here. -->
+<!-- Live demo [_here_](https://www.example.com).  If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 * [User Story](#user-story)
